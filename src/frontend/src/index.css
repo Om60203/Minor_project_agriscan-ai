@@ -1,0 +1,367 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --radius: 1rem;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.48 0.17 152),
+      oklch(0.6 0.15 168)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      oklch(0.99 0.008 148),
+      oklch(0.955 0.02 150)
+    );
+    --gradient-forest: linear-gradient(
+      160deg,
+      oklch(0.32 0.09 155),
+      oklch(0.16 0.045 160)
+    );
+    --gradient-gold: linear-gradient(
+      135deg,
+      oklch(0.78 0.13 80),
+      oklch(0.66 0.12 95)
+    );
+
+    --glow-leaf: oklch(0.6 0.14 160 / 0.5);
+    --glow-gold: oklch(0.75 0.13 85 / 0.45);
+
+    --background: 0.99 0.01 148;
+    --foreground: 0.18 0.03 155;
+    --card: 0.995 0.008 150;
+    --card-foreground: 0.18 0.03 155;
+    --popover: 0.995 0.008 150;
+    --popover-foreground: 0.18 0.03 155;
+
+    --primary: 0.48 0.17 152;
+    --primary-foreground: 0.98 0.01 155;
+
+    --secondary: 0.94 0.025 150;
+    --secondary-foreground: 0.24 0.03 155;
+    --muted: 0.945 0.02 150;
+    --muted-foreground: 0.5 0.02 150;
+
+    --accent: 0.72 0.13 85;
+    --accent-foreground: 0.18 0.03 85;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.01 25;
+
+    --success: 0.55 0.17 150;
+    --warning: 0.72 0.15 85;
+
+    --border: 0.9 0.022 150;
+    --input: 0.9 0.022 150;
+    --ring: 0.48 0.17 152;
+
+    --chart-1: 0.48 0.17 152;
+    --chart-2: 0.6 0.15 168;
+    --chart-3: 0.72 0.13 85;
+    --chart-4: 0.6 0.1 195;
+    --chart-5: 0.7 0.12 130;
+
+    --sidebar: 0.97 0.012 150;
+    --sidebar-foreground: 0.18 0.03 155;
+    --sidebar-primary: 0.48 0.17 152;
+    --sidebar-primary-foreground: 0.98 0.01 155;
+    --sidebar-accent: 0.94 0.02 150;
+    --sidebar-accent-foreground: 0.24 0.03 155;
+    --sidebar-border: 0.9 0.022 150;
+    --sidebar-ring: 0.48 0.17 152;
+  }
+
+  .dark {
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.7 0.19 152),
+      oklch(0.58 0.16 168)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      oklch(0.17 0.024 155),
+      oklch(0.14 0.022 155)
+    );
+    --gradient-forest: linear-gradient(
+      160deg,
+      oklch(0.34 0.1 155),
+      oklch(0.15 0.05 160)
+    );
+    --gradient-gold: linear-gradient(
+      135deg,
+      oklch(0.78 0.13 80),
+      oklch(0.66 0.12 95)
+    );
+
+    --glow-leaf: oklch(0.66 0.16 155 / 0.4);
+    --glow-gold: oklch(0.78 0.13 85 / 0.35);
+
+    --background: 0.13 0.02 155;
+    --foreground: 0.93 0.01 150;
+    --card: 0.17 0.024 155;
+    --card-foreground: 0.93 0.01 150;
+    --popover: 0.17 0.024 155;
+    --popover-foreground: 0.93 0.01 150;
+
+    --primary: 0.7 0.19 152;
+    --primary-foreground: 0.13 0.02 155;
+
+    --secondary: 0.21 0.028 155;
+    --secondary-foreground: 0.86 0.01 150;
+    --muted: 0.21 0.028 155;
+    --muted-foreground: 0.52 0.015 155;
+
+    --accent: 0.72 0.13 85;
+    --accent-foreground: 0.13 0.02 85;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.92 0.01 25;
+
+    --success: 0.62 0.17 150;
+    --warning: 0.72 0.15 85;
+
+    --border: 0.26 0.024 155;
+    --input: 0.26 0.024 155;
+    --ring: 0.7 0.19 152;
+
+    --chart-1: 0.7 0.19 152;
+    --chart-2: 0.58 0.16 168;
+    --chart-3: 0.72 0.13 85;
+    --chart-4: 0.62 0.1 195;
+    --chart-5: 0.7 0.12 130;
+
+    --sidebar: 0.15 0.02 155;
+    --sidebar-foreground: 0.93 0.01 150;
+    --sidebar-primary: 0.7 0.19 152;
+    --sidebar-primary-foreground: 0.13 0.02 155;
+    --sidebar-accent: 0.21 0.028 155;
+    --sidebar-accent-foreground: 0.86 0.01 150;
+    --sidebar-border: 0.26 0.024 155;
+    --sidebar-ring: 0.7 0.19 152;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+
+  .bg-gradient-subtle {
+    background-image: var(--gradient-subtle);
+  }
+
+  .bg-gradient-forest {
+    background-image: var(--gradient-forest);
+  }
+
+  .bg-gradient-gold {
+    background-image: var(--gradient-gold);
+  }
+
+  .text-gradient {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: color-mix(in oklch, var(--card) 62%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
+  }
+
+  .glass-strong {
+    background: color-mix(in oklch, var(--card) 82%, transparent);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid color-mix(in oklch, var(--border) 60%, transparent);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 0 1px oklch(var(--ring) / 0.25), 0 18px 50px -20px
+      oklch(var(--primary) / 0.45);
+  }
+
+  .glow-leaf {
+    box-shadow: 0 24px 70px -24px var(--glow-leaf);
+  }
+
+  .glow-gold {
+    box-shadow: 0 18px 55px -20px var(--glow-gold);
+  }
+
+  /* Premium ambient background: layered green gradient + leaf texture + glow orbs */
+  .bg-ambient {
+    background-color: var(--background);
+    background-image: radial-gradient(
+        60% 50% at 12% 8%,
+        var(--glow-leaf),
+        transparent 70%
+      ), radial-gradient(50% 45% at 88% 12%, var(--glow-gold), transparent 70%),
+      radial-gradient(
+        55% 55% at 50% 100%,
+        color-mix(in oklch, var(--primary) 12%, transparent),
+        transparent 75%
+      ), var(--gradient-subtle);
+  }
+
+  .bg-ambient-dark {
+    background-color: var(--background);
+    background-image: radial-gradient(
+        60% 50% at 12% 8%,
+        var(--glow-leaf),
+        transparent 70%
+      ), radial-gradient(50% 45% at 88% 12%, var(--glow-gold), transparent 70%),
+      radial-gradient(
+        55% 55% at 50% 100%,
+        color-mix(in oklch, var(--primary) 14%, transparent),
+        transparent 75%
+      ), var(--gradient-subtle);
+  }
+
+  /* Subtle leaf / nature texture overlay (organic vein pattern) */
+  .texture-leaf {
+    position: relative;
+  }
+  .texture-leaf::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: radial-gradient(
+        color-mix(in oklch, var(--primary) 22%, transparent) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        color-mix(in oklch, var(--primary) 14%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 24px 24px, 12px 12px;
+    background-position: 0 0, 6px 6px;
+    mask-image: radial-gradient(80% 70% at 50% 30%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(
+      80% 70% at 50% 30%,
+      #000 30%,
+      transparent 100%
+    );
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-card-swipe {
+    animation: card-swipe 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-reveal {
+    animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-drift {
+    animation: drift 14s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 oklch(var(--primary) / 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 18px oklch(var(--primary) / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 oklch(var(--primary) / 0);
+  }
+}
+
+@keyframes card-swipe {
+  0% {
+    opacity: 0;
+    transform: translateX(48px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-6px) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes reveal-up {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(18px, -22px, 0) scale(1.06);
+  }
+  66% {
+    transform: translate3d(-16px, 14px, 0) scale(0.97);
+  }
+}

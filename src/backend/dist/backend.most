@@ -1,0 +1,181 @@
+// Version: 4.0.0
+type ChatMessage__294473763 =
+  {content : Text; role : ChatRole__129020187; timestamp : Int};
+type ChatMessage__572201523 =
+  {content : Text; role : ChatRole__841182216; timestamp : Int};
+type ChatMessage__671146592 =
+  {content : Text; role : ChatRole__677545530; timestamp : Int};
+type ChatRole__129020187 = {#assistant; #user};
+type ChatRole__677545530 = {#assistant; #user};
+type ChatRole__841182216 = {#assistant; #user};
+type Data__265875254<K, V> = {var count : Nat__58649523; kvs : [var ?(K, V)]};
+type DiseaseEntry__184359757 =
+  {
+    causes : [Text];
+    crop : Text;
+    imageUrl : ExternalBlob__220559234;
+    name : Text;
+    prevention : [Text];
+    symptoms : [Text];
+    treatment : [Text]
+  };
+type DiseaseEntry__540065784 =
+  {
+    causes : [Text];
+    crop : Text;
+    imageUrl : Blob;
+    name : Text;
+    prevention : [Text];
+    symptoms : [Text];
+    treatment : [Text]
+  };
+type DiseaseEntry__74814555 =
+  {
+    causes : [Text];
+    crop : Text;
+    imageUrl : Blob;
+    name : Text;
+    prevention : [Text];
+    symptoms : [Text];
+    treatment : [Text]
+  };
+type ExternalBlob__220559234 = Blob;
+type Internal__161573640<K, V> =
+  {children : [var ?Node__430031793<K, V>]; data : Data__265875254<K, V>};
+type Leaf__1045638083<K, V> = {data : Data__265875254<K, V>};
+type List__1004628775<T> =
+  {
+    var blockIndex : Nat__58649523;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__58649523
+  };
+type List__89170296<T> = List__1004628775<T>;
+type Map__13625999<K, V> =
+  {var root : Node__430031793<K, V>; var size : Nat__58649523};
+type Map__386906547<K, V> = Map__670138087<K, V>;
+type Map__670138087<K, V> = Map__13625999<K, V>;
+type Nat__58649523 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__459703367 =
+  {
+    accessControlState :
+      {
+        var adminAssigned : Bool;
+        userRoles : Map__386906547<Principal, UserRole__711459138>
+      };
+    chat : List__89170296<ChatMessage__671146592>;
+    chatSession : {var id : Nat};
+    library : List__89170296<DiseaseEntry__540065784>;
+    scanCounter : {var next : Nat};
+    scans : Map__386906547<Nat, ScanRecord__79418339>
+  };
+type NewActor__579342626 =
+  {
+    accessControlState :
+      {
+        var adminAssigned : Bool;
+        userRoles : Map__386906547<Principal, UserRole__344163909>
+      };
+    chat : List__89170296<ChatMessage__572201523>;
+    chatSession : {var id : Nat};
+    library : List__89170296<DiseaseEntry__74814555>;
+    scanCounter : {var next : Nat};
+    scans : Map__386906547<Nat, ScanRecord__701966697>
+  };
+type Node__430031793<K, V> =
+  {#internal : Internal__161573640<K, V>; #leaf : Leaf__1045638083<K, V>};
+type OldActor__152113688 = {};
+type OldActor__169379080 =
+  {
+    accessControlState :
+      {
+        var adminAssigned : Bool;
+        userRoles : Map__386906547<Principal, UserRole__344163909>
+      };
+    chat : List__89170296<ChatMessage__572201523>;
+    chatSession : {var id : Nat};
+    library : List__89170296<DiseaseEntry__74814555>;
+    scanCounter : {var next : Nat};
+    scans : Map__386906547<Nat, ScanRecord__701966697>
+  };
+type ScanRecord__277223789 =
+  {
+    confidence : Float;
+    description : Text;
+    diseaseName : Text;
+    expertAdvice : Text;
+    id : Nat;
+    imageUrl : ExternalBlob__220559234;
+    organicSuggestions : [Text];
+    prevention : [Text];
+    severity : Text;
+    symptoms : [Text];
+    timestamp : Int;
+    treatment : [Text];
+    videoUrl : ?ExternalBlob__220559234
+  };
+type ScanRecord__701966697 =
+  {
+    confidence : Float;
+    description : Text;
+    diseaseName : Text;
+    expertAdvice : Text;
+    id : Nat;
+    imageUrl : Blob;
+    organicSuggestions : [Text];
+    prevention : [Text];
+    severity : Text;
+    symptoms : [Text];
+    timestamp : Int;
+    treatment : [Text];
+    videoUrl : ?Blob
+  };
+type ScanRecord__79418339 =
+  {
+    confidence : Float;
+    description : Text;
+    diseaseName : Text;
+    expertAdvice : Text;
+    id : Nat;
+    imageUrl : Blob;
+    organicSuggestions : [Text];
+    prevention : [Text];
+    severity : Text;
+    symptoms : [Text];
+    timestamp : Int;
+    treatment : [Text];
+    videoUrl : ?Blob
+  };
+type UserRole__344163909 = {#admin; #guest; #user};
+type UserRole__711459138 = {#admin; #guest; #user};
+type UserRole__91647283 = {#admin; #guest; #user};
+{
+  "20260906_160311" : (_old : OldActor__152113688) -> NewActor__459703367;
+  "20260906_170000" : (old : OldActor__169379080) -> NewActor__579342626
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__386906547<Principal, UserRole__91647283>
+    };
+  stable chat :
+    {
+      var blockIndex : Nat__58649523;
+      var blocks : [var [var ?ChatMessage__294473763]];
+      var elementIndex : Nat__58649523
+    };
+  stable chatSession : {var id : Nat};
+  stable library :
+    {
+      var blockIndex : Nat__58649523;
+      var blocks : [var [var ?DiseaseEntry__184359757]];
+      var elementIndex : Nat__58649523
+    };
+  stable scanCounter : {var next : Nat};
+  stable scans :
+    {
+      var root : Node__430031793<Nat, ScanRecord__277223789>;
+      var size : Nat__58649523
+    }
+};

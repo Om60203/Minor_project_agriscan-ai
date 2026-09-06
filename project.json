@@ -1,0 +1,17 @@
+{
+  "overview": "AgriScan AI helps farmers diagnose plant diseases from leaf photos with AI, get real answers from an AI assistant, and browse a crop disease library.",
+  "features": [
+    "Upload a leaf photo and get a structured AI disease diagnosis",
+    "Ask the AI assistant plant questions and get real answers",
+    "View past scans in a disease history with full reports",
+    "Search a crop disease library by crop or name"
+  ],
+  "category": "agriculture",
+  "tags": [
+    "agriculture",
+    "ai",
+    "plant-disease",
+    "farmer-tools"
+  ],
+  "last_updated": "2026-09-06T16:49:15.178Z"
+}
